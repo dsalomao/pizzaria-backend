@@ -1,6 +1,5 @@
 import prismaClient from "../../prisma"
 
-
 interface OrderRequest {
     table: number,
     name: string
