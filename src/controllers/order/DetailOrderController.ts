@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { FinishOrderService } from "../../services/order/FinishOrderService";
+import { DetailOrderService } from "../../services/order/DetailOrderService";
 
 
-class FinishOrderController {
+class DetailOrderController {
     async handle(req: Request, res: Response) {
         const { order_id } = req.params
 
-        const service = new FinishOrderService()
+        const service = new DetailOrderService()
 
         const order = await service.execute({
             order_id: order_id
@@ -16,4 +16,4 @@ class FinishOrderController {
     }
 }
 
-export { FinishOrderController }
+export { DetailOrderController }

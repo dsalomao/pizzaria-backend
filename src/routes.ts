@@ -16,8 +16,9 @@ import { CreateOrderController } from "./controllers/order/CreateOrderController
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
 import { CreateItemController } from "./controllers/item/CreateItemController";
 import { RemoveItemController } from "./controllers/item/RemoveItemController";
-import { FinishOrderController } from "./controllers/order/FinishOrderController";
+import { SendOrderController } from "./controllers/order/SendOrderController";
 import { ListOrderController } from "./controllers/order/ListOrderController";
+import { DetailOrderController } from "./controllers/order/DetailOrderController";
 
 const router = Router()
 
@@ -39,8 +40,9 @@ router.get('/products/bycategory/:category_id', isAuthenticated, new ListByCateg
 // ROTAS ORDER
 router.post('/orders', isAuthenticated, new CreateOrderController().handle)
 router.delete('/orders/:order_id', isAuthenticated, new RemoveOrderController().handle)
-router.get('/orders/finishorder/:order_id', isAuthenticated, new FinishOrderController().handle)
+router.get('/orders/sendorder/:order_id', isAuthenticated, new SendOrderController().handle)
 router.get('/orders', isAuthenticated, new ListOrderController().handle)
+router.get('/orders/:order_id', isAuthenticated, new DetailOrderController().handle)
 
 // ROTAS ITEMS
 router.post('/items', isAuthenticated, new CreateItemController().handle)
